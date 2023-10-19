@@ -2,10 +2,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-BackendApplication<backend>",
+            "name": "Spring Boot-Application<backend>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.cars.backend.BackendApplication",
+            "mainClass": "com.cars.backend.Application",
             "projectName": "backend",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
