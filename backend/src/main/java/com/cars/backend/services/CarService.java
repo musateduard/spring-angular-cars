@@ -27,6 +27,6 @@ public class CarService {
     public List<Car> getLada(String name) {
 
         System.out.println("getting lada");
-        List<Car> lada = carRepository.findByName(name);
+        List<Car> ladas = carRepository.findByName(name);
 
-        return lada;}}
+        return ladas;}}
