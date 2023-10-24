@@ -25,3 +25,4 @@ describe('AppComponent', () => {
         expect(compiled.querySelector('.content span')?.textContent).toContain('frontend app is running!');
     });
 });
+
