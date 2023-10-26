@@ -13,13 +13,13 @@ import com.cars.backend.services.CarService;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path="/api")
 public class CarController {
 
     @Autowired
     private CarService carService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/cars")
     public List<Car> getCars() {
         return carService.getCars();}
