@@ -9,7 +9,7 @@ class ExampleTest extends Specification {
 
         given:
         int someNumber = 3
-        String myString = "this is a string"
+        String myString = "sample string"
         int anotherNumber = 1
 
         when:
@@ -18,6 +18,5 @@ class ExampleTest extends Specification {
         then:
         someNumber != anotherNumber
 
-        return
-    }
+        return}
 }
