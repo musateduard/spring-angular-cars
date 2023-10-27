@@ -1,22 +1,32 @@
 package com.cars.backend
 
 import spock.lang.Specification
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
 class ExampleTest extends Specification {
 
+    ChromeDriver browser
+
+    void setup() {
+        browser = new ChromeDriver()
+        return}
+
     void exampleSpec() {
 
         given:
-        int someNumber = 3
-        String myString = "sample string"
-        int anotherNumber = 1
+        String something = "something"
 
         when:
-        someNumber == 3
+        browser.get("https://browserleaks.com/ip")
+        String title = browser.getTitle()
 
         then:
-        someNumber != anotherNumber
+        something != title
 
+        return}
+
+    void cleanup() {
+        browser.quit()
         return}
 }
