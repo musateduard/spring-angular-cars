@@ -30,5 +30,6 @@ dependencies {
 }
 
 test {
+    systemProperty("webdriver.chrome.driver", "${System.getProperty('user.dir')}/chromedriver")
     useJUnitPlatform()
 }
