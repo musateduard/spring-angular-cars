@@ -1,6 +1,5 @@
 package com.cars.backend;
 
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,40 +11,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class BackendApplicationTests {
 
-	private static ChromeDriver browser;
+    private static ChromeDriver browser;
 
+    @BeforeAll
+    public static void startBrowser() {
 
-	@BeforeAll
-	public static void startBrowser() {
+        System.out.println("starting browser");
+        browser = new ChromeDriver();
 
-		System.out.println("starting browser");
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/java/com/cars/backend/chromedriver");
-		browser = new ChromeDriver();
+        return;}
 
-		return;}
+    @AfterAll
+    public static void quitBrowser() {
 
+        System.out.println("closing browser");
+        browser.quit();
 
-	@AfterAll
-	public static void quitBrowser() {
+        return;}
 
-		System.out.println("closing browser");
-		browser.quit();
+    @Test
+    public void contextLoads() {
 
-		return;}
+        assertEquals(1, 1);
 
+        browser.get("https://google.com");
 
-	@Test
-	public void contextLoads() {
+        // try {
+        //     Thread.sleep(1000 * 2);}
 
-		assertEquals(1, 1);
+        // catch (InterruptedException error) {
+        //     System.err.println(error);}
 
-		browser.get("https://google.com");
-
-		try {
-			Thread.sleep(1000 * 5);}
-
-		catch (InterruptedException error) {
-			System.err.println(error);}
-
-		return;}
+        return;}
 }
