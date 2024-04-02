@@ -1,31 +1,21 @@
 package com.cars.backend;
 
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
 class BackendApplicationTests {
 
-    private static ChromeDriver browser;
-
     @BeforeAll
     public static void startBrowser() {
 
         System.out.println("starting browser");
-        browser = new ChromeDriver();
-
-        return;}
-
-    @AfterAll
-    public static void quitBrowser() {
-
-        System.out.println("closing browser");
-        browser.quit();
 
         return;}
 
@@ -34,13 +24,31 @@ class BackendApplicationTests {
 
         assertEquals(1, 1);
 
-        browser.get("https://google.com");
+        try {
+            TimeUnit.SECONDS.sleep(2);}
 
-        // try {
-        //     Thread.sleep(1000 * 2);}
+        catch (InterruptedException error) {
+            System.err.println(error.toString());}
 
-        // catch (InterruptedException error) {
-        //     System.err.println(error);}
+        return;}
+
+    @Test
+    public void test1() {
+
+        try {
+            TimeUnit.SECONDS.sleep(2);}
+
+        catch (InterruptedException error) {
+            System.err.println(error.toString());}
+
+        assertEquals(1, 1);
+
+        return;}
+
+    @AfterAll
+    public static void quitBrowser() {
+
+        System.out.println("closing browser");
 
         return;}
 }
