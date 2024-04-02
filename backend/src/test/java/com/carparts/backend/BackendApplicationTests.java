@@ -1,4 +1,4 @@
-package com.cars.backend;
+package com.carparts.backend;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;

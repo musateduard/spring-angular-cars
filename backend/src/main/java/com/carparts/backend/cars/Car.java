@@ -1,4 +1,4 @@
-package com.cars.backend.models;
+package com.carparts.backend.cars;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;

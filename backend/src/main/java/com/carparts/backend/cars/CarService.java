@@ -1,12 +1,8 @@
-package com.cars.backend.services;
+package com.carparts.backend.cars;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cars.backend.models.Car;
-import com.cars.backend.repositories.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Service

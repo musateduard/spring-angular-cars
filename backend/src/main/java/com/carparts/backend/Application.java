@@ -1,4 +1,4 @@
-package com.cars.backend;
+package com.carparts.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
