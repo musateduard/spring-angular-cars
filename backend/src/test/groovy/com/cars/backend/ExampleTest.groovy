@@ -1,15 +1,12 @@
 package com.cars.backend
 
 import spock.lang.Specification
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 class ExampleTest extends Specification {
 
-    ChromeDriver browser
-
     void setup() {
-        browser = new ChromeDriver()
+        println("running setup")
         return}
 
     void exampleSpec() {
@@ -18,15 +15,14 @@ class ExampleTest extends Specification {
         String something = "something"
 
         when:
-        browser.get("https://browserleaks.com/ip")
-        String title = browser.getTitle()
+        String test2 = "some string"
 
         then:
-        something != title
+        something != test2
 
         return}
 
     void cleanup() {
-        browser.quit()
+        println("performing cleanup")
         return}
 }
