@@ -68,6 +68,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car [id=" + id + ", name=" + name + ", color=" + color + ", year=" + year + "]";
+        return String.format("Car [id=%d, name=%s, color=%s, year=%d]", id, name, color, year);
     }
 }
