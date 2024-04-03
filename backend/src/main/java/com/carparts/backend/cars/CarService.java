@@ -25,4 +25,14 @@ public class CarService {
         System.out.println("getting lada");
         List<Car> ladas = carRepository.findByName(name);
 
-        return ladas;}}
+        return ladas;}
+
+    public List<Car> createCar(Car carObject) {
+
+        System.out.println("creating car");
+        carRepository.save(carObject);
+
+        List<Car> createdCar = carRepository.findByName(carObject.getName());
+
+        return createdCar;}
+}
