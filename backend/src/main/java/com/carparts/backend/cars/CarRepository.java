@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     List<Car> findByName(String name);
-    List<Car> findByYear(Integer year);}
+    List<Car> findByYear(Integer year);
+}
