@@ -8,31 +8,32 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.SequenceGenerator;
 
 
-@Entity(name = "car")
+@Entity(name="car")
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "car_generator")
-    @SequenceGenerator(name = "car_generator", sequenceName = "car_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="car_generator")
+    @SequenceGenerator(name="car_generator", sequenceName="car_id_seq", allocationSize=1)
     private Long id;
 
-    @Column(length = 255, nullable = false)
+    @Column(length=255, nullable=false)
     private String name;
 
-    @Column(length = 255, nullable = false)
+    @Column(length=255, nullable=false)
     private String color;
 
-    @Column(nullable = false)
+    @Column(nullable=false)
     private Integer year;
 
     public Car(String name, String color, Integer year) {
+
         this.name = name;
         this.color = color;
         this.year = year;
-    }
 
-    public Car() {
-    }
+        return;}
+
+    public Car() {}
 
     public Long getId() {
         return id;
@@ -68,6 +69,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("Car [id=%d, name=%s, color=%s, year=%d]", id, name, color, year);
-    }
+        String carString = "Car [id=%d, name=%s, color=%s, year=%d]".formatted(id, name, color, year);
+        return carString;}
 }
