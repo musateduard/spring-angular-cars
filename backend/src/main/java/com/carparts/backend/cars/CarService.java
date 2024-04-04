@@ -12,27 +12,41 @@ public class CarService {
     private CarRepository carRepository;
 
 
-    public List<Car> getCars() {
+    public List<Car> getAllCars() {
 
-        System.out.println("getting cars");
-        List<Car> cars = carRepository.findAll();
+        System.out.println("getting all cars");
+        List<Car> carList = carRepository.findAll();
 
-        return cars;}
+        return carList;}
 
 
-    public List<Car> getLada(String name) {
+//    public List<Car> getLada(String name) {
+//
+//        System.out.println("getting lada");
+//        List<Car> ladas = carRepository.findByName(name);
+//
+//        return ladas;}
 
-        System.out.println("getting lada");
-        List<Car> ladas = carRepository.findByName(name);
 
-        return ladas;}
+    public Car createCar(Car carObject) {
 
-    public List<Car> createCar(Car carObject) {
+        System.out.println("validating data");
 
-        System.out.println("creating car");
-        carRepository.save(carObject);
+        // very complicated "business" logic
+        if (carObject.getName().equals("dacia")) {
+            System.out.println("creating dacia");}
 
-        List<Car> createdCar = carRepository.findByName(carObject.getName());
+        else {
+            System.out.println("creating other car");}
 
-        return createdCar;}
+        Car response = carRepository.save(carObject);
+
+        return response;}
+
+
+    public void deleteCar(Long carId) {
+        // todo: throw exception if car id not found
+        System.out.println("deleting car id: %d".formatted(carId));
+        carRepository.deleteById(carId);
+        return;}
 }
