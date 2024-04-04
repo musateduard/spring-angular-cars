@@ -1,19 +1,19 @@
 package com.carparts.backend.cars;
 
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.SequenceGenerator;
 
 
-@Entity(name="car")
+@Entity
+@Table(name="car")
 public class Car {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="car_generator")
-    @SequenceGenerator(name="car_generator", sequenceName="car_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(length=255, nullable=false)
