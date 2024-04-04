@@ -1,12 +1,8 @@
 package com.carparts.backend.cars;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -14,33 +10,34 @@ import org.springframework.beans.factory.annotation.Autowired;
  * for the cars component. */
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping(path="/api")
+@RequestMapping(path="/api/cars")
 public class CarController {
 
     @Autowired
     private CarService carService;
 
 
-    @GetMapping(value="/cars")
-    public List<Car> getCars() {
-        List<Car> carList = carService.getCars();
-        return carList;}
+    @GetMapping
+    public ResponseEntity<List<Car>> getAllCars() {
+        List<Car> carList = carService.getAllCars();
+        return ResponseEntity.ok(carList);}
 
 
-    @GetMapping(value="/ladas")
-    public List<Car> getLada(String name) {
-        List<Car> ladaList = carService.getLada("lada");
-        return ladaList;}
+//    @GetMapping(value="/ladas")
+//    public List<Car> getLada(String name) {
+//        List<Car> ladaList = carService.getLada("lada");
+//        return ladaList;}
 
 
-    @PostMapping(value="/cars")
-    public List<Car> createCar(@RequestBody Car requestBody) {
+    @PostMapping
+    public ResponseEntity<Car> createCar(@RequestBody Car requestBody) {
+        Car createdCar = carService.createCar(requestBody);
+        return ResponseEntity.ok(createdCar);}
 
-        System.out.println("adding new car");
-        System.out.println(requestBody);
-        Car car = new Car(requestBody.getName(), requestBody.getColor(), requestBody.getYear());
 
-        List<Car> createdCar = carService.createCar(requestBody);
-
-        return createdCar;}
+    @DeleteMapping(value="/{carId}")
+    public ResponseEntity<Void> deleteCar(@PathVariable Long carId) {
+        // todo: add error handling if car id not found
+        carService.deleteCar(carId);
+        return ResponseEntity.noContent().build();}
 }
