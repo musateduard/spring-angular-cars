@@ -9,20 +9,20 @@ import jakarta.persistence.GenerationType;
 
 
 @Entity
-@Table(name="car")
+@Table(name = "car")
 public class Car {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length=255, nullable=false)
+    @Column(length = 255, nullable = false)
     private String name;
 
-    @Column(length=255, nullable=false)
+    @Column(length = 255, nullable = false)
     private String color;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private Integer year;
 
     public Car(String name, String color, Integer year) {
