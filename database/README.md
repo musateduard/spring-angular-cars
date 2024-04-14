@@ -9,7 +9,7 @@ this folder contains sql files for database definitions and data backups.
 
 ### init database
 ```bash
-psql postgres user1 < schema.sql
+./init_db.sh
 ```
 
 ### create backup
