@@ -9,8 +9,10 @@ import jakarta.persistence.GenerationType;
 
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars", schema = "main")
 public class Car {
+
+    // todo: update car fields to new schema
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
