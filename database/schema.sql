@@ -1,10 +1,6 @@
 
 
--- init database
-DROP DATABASE car_parts;
-CREATE DATABASE car_parts WITH TEMPLATE template0 ENCODING 'UTF8' LOCALE 'en_US.UTF-8' OWNER user1;
-
-\connect car_parts user1
+-- create main schema
 CREATE SCHEMA main AUTHORIZATION user1;
 
 
@@ -31,11 +27,10 @@ CREATE TABLE IF NOT EXISTS main.cars (
     color VARCHAR(255) NOT NULL,
     year INT NOT NULL,
     engine INT NOT NULL REFERENCES main.engines(id),
-    owner INT NOT NULL REFERENCES main.owners(id));
+    current_owner INT NOT NULL REFERENCES main.owners(id));
 
 
--- create cars_owners table
-CREATE TABLE IF NOT EXISTS main.cars_owners (
+-- create previous_owners table
+CREATE TABLE IF NOT EXISTS main.previous_owners (
     car INT NOT NULL REFERENCES main.cars(id) ON DELETE CASCADE,  -- should we cascade?
-    owner INT NOT NULL REFERENCES main.owners(id) ON DELETE CASCADE,  -- should we cascade?
-    UNIQUE (car, owner));
+    owner INT NOT NULL REFERENCES main.owners(id) ON DELETE CASCADE);  -- should we cascade?
