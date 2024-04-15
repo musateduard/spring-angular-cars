@@ -19,10 +19,10 @@ CREATE TABLE IF NOT EXISTS main.cars (
     year INT NOT NULL,
     horsepower INT NOT NULL,
     mileage INT NOT NULL,
-    current_owner INT NOT NULL REFERENCES main.owners(id));
+    current_owner BIGINT NOT NULL REFERENCES main.owners(id));
 
 
 -- create previous_owners table
 CREATE TABLE IF NOT EXISTS main.previous_owners (
-    car INT NOT NULL REFERENCES main.cars(id) ON DELETE CASCADE,  -- should we cascade?
-    owner INT NOT NULL REFERENCES main.owners(id) ON DELETE CASCADE);  -- should we cascade?
+    car BIGINT NOT NULL REFERENCES main.cars(id) ON DELETE CASCADE,  -- should we cascade?
+    owner BIGINT NOT NULL REFERENCES main.owners(id) ON DELETE CASCADE);  -- should we cascade?
