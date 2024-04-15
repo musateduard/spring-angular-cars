@@ -4,15 +4,6 @@
 CREATE SCHEMA main;
 
 
--- create engines table
-CREATE TABLE IF NOT EXISTS main.engines (
-    id BIGSERIAL PRIMARY KEY,
-    manufacturer VARCHAR(255) NOT NULL,
-    year INT NOT NULL,
-    capacity INT NOT NULL,
-    horsepower INT NOT NULL);
-
-
 -- create owners table
 CREATE TABLE IF NOT EXISTS main.owners (
     id BIGSERIAL PRIMARY KEY,
@@ -26,7 +17,8 @@ CREATE TABLE IF NOT EXISTS main.cars (
     name VARCHAR(255) NOT NULL,
     color VARCHAR(255) NOT NULL,
     year INT NOT NULL,
-    engine INT NOT NULL REFERENCES main.engines(id),
+    horsepower INT NOT NULL,
+    mileage INT NOT NULL,
     current_owner INT NOT NULL REFERENCES main.owners(id));
 
 
