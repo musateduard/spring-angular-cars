@@ -34,4 +34,4 @@ out/
 /.nb-gradle/
 
 /chromedriver
-/src/main/resources/secrets.properties
+/src/main/resources/database.properties
