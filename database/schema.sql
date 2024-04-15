@@ -1,7 +1,7 @@
 
 
 -- create main schema
-CREATE SCHEMA main AUTHORIZATION user1;
+CREATE SCHEMA main;
 
 
 -- create engines table
