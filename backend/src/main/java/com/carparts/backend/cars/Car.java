@@ -27,6 +27,15 @@ public class Car {
     @Column(nullable = false)
     private Integer year;
 
+    @Column(nullable = false)
+    private Integer horsepower;
+
+    @Column(nullable = false)
+    private Integer mileage;
+
+    // todo: mark field as reference to Owners table
+    private Long current_owner;
+
     public Car(String name, String color, Integer year) {
 
         this.name = name;
@@ -36,6 +45,8 @@ public class Car {
         return;}
 
     public Car() {}
+
+    // todo: update getters and setters
 
     public Long getId() {
         return id;
