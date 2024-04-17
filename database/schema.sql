@@ -3,7 +3,6 @@ CREATE SCHEMA main;
 
 
 -- create owners table
-/* sdfjkhkjhsdfkhweuifghweuifhweuifh */
 CREATE TABLE IF NOT EXISTS main.owners (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
