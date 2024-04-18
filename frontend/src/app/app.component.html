@@ -1,52 +1,28 @@
-<link rel="stylesheet" href="./app.component.css">
-
 <header class="navbar">
     <p>this is the header</p>
 </header>
 
 <main>
-    <p>title: {{ title }}</p>
-    <p>string: {{ testString }}</p>
-    <p>another string: {{ testAnotherString }}</p>
 
-    <button
-        (click)="setRender()">
-
-        set render
-    </button>
-
-    <p *ngIf="render">this paragraph is displayed conditionally</p>
-
-    <ul>
-        <li>this is a for loop list</li>
-        <li *ngFor="let item of testList">{{ item.toLocaleUpperCase() }}</li>
-    </ul>
-
-    <section>
-        <article>
-            <header>article header</header>
-            <p>article paragraph 1</p>
-            <p>article paragraph 2</p>
-            <p>article paragraph 3</p>
-            <p>article paragraph 4</p>
-        </article>
-    </section>
+    <input type="text" placeholder="name">
+    <input type="text" placeholder="year">
+    <input type="text" placeholder="horsepower">
+    <input type="text" placeholder="mileage">
+    <button>create car</button>
 
     <button
         (click)="getData()">
 
-        get data
+        get cars
     </button>
+    <button>update car</button>
+    <button>delete car</button>
 
     <ul
         *ngIf="renderData">
 
-        <li *ngFor="let item of testData">car: {{ item.name }}</li>
+        <li *ngFor="let item of carList">car: {{ item.name }}</li>
     </ul>
-
-    <section>section 2</section>
-    <section>section 3</section>
-    <section>section 4</section>
 
 </main>
 
