@@ -1,29 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { Car } from './types';
+import { Component, OnInit } from "@angular/core";
+import { Car } from "./types";
 
 
 @Component({
-    selector: 'app-root',
-    styleUrls: ['./app.component.css'],
-    templateUrl: './app.component.html',})
+    selector: "app-root",
+    styleUrls: ["./app.component.css"],
+    templateUrl: "./app.component.html",})
 export class AppComponent implements OnInit {
 
-    title: string = 'frontend';
-    testString: string = "another app property";
-    testAnotherString: string = "one more props";
+    title: string = "frontend";
     render: boolean = true;
 
-    testList: string[] = ["string 1", "string 2", "string 3", "string 4"];
-
     renderData: boolean = false;
-    testData: Car[] = [];
+    carList: Car[] = [];
 
-    ngOnInit(): void {
-        return;}
 
     setRender(): void {
         this.render = !this.render;
         return;}
+
 
     async getData(): Promise<void> {
 
@@ -46,14 +41,19 @@ export class AppComponent implements OnInit {
 
             console.log(data);
 
-            this.testData = data;
+            this.carList = data;
             this.renderData = true;}
 
         catch (error) {
             console.log(error);}
 
-        // let time: Date = new Date();
-        // this.testData = ["data 1", "data 2", `${time.getUTCHours()}:${time.getMinutes()}:${time.getSeconds()}:${time.getMilliseconds()}`];
-        // this.renderData = true;
+        return;}
 
-        return;}}
+
+    async ngOnInit(): Promise<void> {
+
+        console.log("loading main app");
+        await this.getData();
+
+        return;}
+}
