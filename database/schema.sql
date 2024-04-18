@@ -16,8 +16,9 @@ CREATE TABLE IF NOT EXISTS main.cars (
     color VARCHAR(255) NOT NULL,
     year INT NOT NULL,
     horsepower INT NOT NULL,
-    mileage INT NOT NULL,
-    current_owner BIGINT NOT NULL REFERENCES main.owners(id));
+    mileage INT NOT NULL
+    -- current_owner BIGINT NOT NULL REFERENCES main.owners(id)
+);
 
 
 -- create previous_owners table
