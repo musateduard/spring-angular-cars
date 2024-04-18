@@ -1,5 +1,9 @@
-body {
+:root {
     font-family: monospace;
+    font-size: 16px;
+}
+
+body {
     font-size: 1rem;
     margin: 0px;
 }
