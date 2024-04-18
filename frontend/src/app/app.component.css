@@ -4,7 +4,6 @@
 }
 
 main {
-    background-color: aquamarine;
     min-height: 60rem;
     display: flex;
     flex-direction: column;
