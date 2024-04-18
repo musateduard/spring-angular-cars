@@ -19,7 +19,6 @@ public class CarService {
 
         System.out.println("validating data");
 
-        // very complicated "business" logic
         if (carObject.getName().equals("dacia")) {
             System.out.println("creating dacia");}
 
@@ -40,8 +39,10 @@ public class CarService {
 
 
     public Car getCarById(Long carId) throws ResponseStatusException {
+
         System.out.println("getting car: %d".formatted(carId));
         Car car = carRepository.findById(carId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
         return car;}
 
 
